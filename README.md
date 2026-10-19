@@ -2,19 +2,13 @@
 
 ![PresTUI demo](https://raw.githubusercontent.com/presvy1-beep/Prestui/v0.1.0/prestui.gif)
 
-## Install (Linux x86-64)
+## Download and Install
 
-Download and install the [v0.1.0 release](https://github.com/presvy1-beep/Prestui/releases/tag/v0.1.0):
+Requires Rust and Cargo.
 
 ```sh
-curl -fLO https://github.com/presvy1-beep/Prestui/releases/download/v0.1.0/prestui-v0.1.0-linux-x86_64.tar.gz
-curl -fLO https://github.com/presvy1-beep/Prestui/releases/download/v0.1.0/prestui-v0.1.0-linux-x86_64.tar.gz.sha256
-sha256sum -c prestui-v0.1.0-linux-x86_64.tar.gz.sha256
-tar -xzf prestui-v0.1.0-linux-x86_64.tar.gz
-sudo install -Dm755 prestui-v0.1.0-linux-x86_64/prestui /usr/local/bin/prestui
+cargo install prestui
 ```
-
-Requires a compatible glibc-based x86-64 Linux system.
 
 ## Usage
 
