@@ -1,0 +1,29 @@
+[package]
+name = "prestui"
+version = "0.1.0"
+edition = "2021"
+description = "Render images in the terminal"
+license = "MIT"
+readme = "README.md"
+exclude = ["image.jpeg", "*.ansi", "*.out", "test-output*"]
+keywords = ["terminal", "image", "ascii", "tui", "cli"]
+categories = ["command-line-utilities", "multimedia::images"]
+
+[dependencies]
+anyhow = "1"
+arboard = { version = "3", features = ["wayland-data-control"] }
+clap = { version = "4", features = ["derive"] }
+crossterm = "0.28"
+image = { version = "0.25", default-features = false, features = ["bmp", "gif", "jpeg", "png", "webp"] }
+ratatui = "0.29"
+rfd = { version = "0.17.2", default-features = false, features = ["xdg-portal"] }
+
+[dev-dependencies]
+assert_cmd = "2"
+predicates = "3"
+tempfile = "3"
+
+[profile.release]
+lto = "thin"
+codegen-units = 1
+strip = true

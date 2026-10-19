@@ -1,0 +1,14 @@
+/target/
+.directory
+*.swp
+.DS_Store
+
+/image.jpeg
+*.ansi
+*.out
+test-output*
+
+.env
+.idea/
+.vscode/
+*.log
