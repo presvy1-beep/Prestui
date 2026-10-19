@@ -4,8 +4,9 @@ version = "0.1.0"
 edition = "2021"
 description = "Render images in the terminal"
 license = "MIT"
+repository = "https://github.com/presvy1-beep/Prestui"
 readme = "README.md"
-exclude = ["image.jpeg", "*.ansi", "*.out", "test-output*"]
+exclude = ["image.jpeg", "*.ansi", "*.out", "test-output*", "prestui.gif", "1.jpg", ".github/**"]
 keywords = ["terminal", "image", "ascii", "tui", "cli"]
 categories = ["command-line-utilities", "multimedia::images"]
 

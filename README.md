@@ -1,6 +1,6 @@
 # PresTUI
 
-![PresTUI demo](./prestui.gif)
+![PresTUI demo](https://raw.githubusercontent.com/presvy1-beep/Prestui/v0.1.0/prestui.gif)
 
 ## Install (Linux x86-64)
 
