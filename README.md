@@ -2,28 +2,42 @@
 
 ![PresTUI demo](./prestui.gif)
 
-PresTUI renders images in the terminal as ASCII, ANSI TrueColor, or Unicode
-half blocks. It also includes an interactive Ratatui viewer.
+PresTUI renders images in the terminal as ASCII, ANSI TrueColor, or Unicode half blocks. It includes an interactive terminal viewer.
 
 ## Install
 
-Requires Rust and Cargo. Install from source:
+### Linux (x86-64)
+
+Download the compiled executable from the [v0.1.0 release](https://github.com/presvy1-beep/Prestui/releases/tag/v0.1.0):
 
 ```sh
-cargo install --git https://github.com/presvy1-beep/PresTUI
+curl -fLO https://github.com/presvy1-beep/Prestui/releases/download/v0.1.0/prestui-v0.1.0-linux-x86_64.tar.gz
+curl -fLO https://github.com/presvy1-beep/Prestui/releases/download/v0.1.0/prestui-v0.1.0-linux-x86_64.tar.gz.sha256
+sha256sum -c prestui-v0.1.0-linux-x86_64.tar.gz.sha256
+tar -xzf prestui-v0.1.0-linux-x86_64.tar.gz
+sudo install -Dm755 prestui-v0.1.0-linux-x86_64/prestui /usr/local/bin/prestui
 ```
 
-Or clone and build locally:
+The binary is built on Ubuntu 24.04 for x86-64 Linux and requires a compatible glibc-based system.
+
+### From source
+
+Requires Rust and Cargo:
 
 ```sh
-git clone https://github.com/presvy1-beep/PresTUI
-cd PresTUI
-cargo build --release
+cargo install --git https://github.com/presvy1-beep/Prestui --tag v0.1.0 --locked
 ```
 
-## Use
+## Usage
 
-Render an image to stdout:
+Open the interactive viewer or load an image directly:
+
+```sh
+prestui
+prestui image.png
+```
+
+Render to the terminal or redirect the output:
 
 ```sh
 prestui render image.png --mode ascii --width 80
@@ -32,14 +46,7 @@ prestui render image.png --mode blocks --width 100
 prestui render image.png --mode ascii > image.txt
 ```
 
-Run `prestui` to open the image picker, or pass an image to open it directly:
-
-```sh
-prestui
-prestui image.png
-```
-
-In the viewer:
+### Viewer controls
 
 ```text
 1 / 2 / 3   ASCII / ANSI / Blocks
@@ -52,12 +59,14 @@ s           Copy rendered output
 q / Esc     Quit
 ```
 
-The viewer responds to terminal resizing. CLI output goes to stdout and errors
-go to stderr. Run `prestui render --help` for all options.
+Supports PNG, JPEG, WebP, BMP, and GIF. Use `prestui render --help` for all CLI options.
 
-PNG, JPEG, WebP, BMP, and GIF images are supported. See [LICENSE](LICENSE) for
-the MIT license.
+## Development
 
-For development, run `cargo fmt --all -- --check`,
-`cargo clippy --all-targets --all-features -- -D warnings`, and
-`cargo test --locked`.
+```sh
+cargo fmt --all -- --check
+cargo clippy --all-targets --all-features -- -D warnings
+cargo test --locked
+```
+
+MIT licensed. See [LICENSE](LICENSE).
